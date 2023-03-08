@@ -26,12 +26,12 @@ jobs:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
 
       - name: install dependencies for linux
-        if: ${{ runner.os == "Linux" }}
+        if: matrix.os == "ubuntu-latest" }}
         run: |
           apt-get install autoconf libpcre3-dev pkg-config zlib1g-dev m4 libgmp-dev libev4 libsqlite3-dev
 
       - name: install dependencies for darwin
-        if: ${{ runner.os == "Darwin" }}
+        if: matrix.os == "macos-latest"
         run: |
           brew install pkg-config gmp pcre libev
 
